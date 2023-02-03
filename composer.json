@@ -6,12 +6,13 @@
     "require-dev": {
         "ext-ast": "*",
         "ext-openssl": "*",
-        "phpunit/phpunit": "^9.5",
         "phan/phan": "^5.4",
-        "squizlabs/php_codesniffer": "^3.7",
         "php-coveralls/php-coveralls": "^2.5",
+        "phpmd/phpmd": "^2.13",
+        "phpolar/http-codes": "^0.0.6",
         "phpstan/phpstan": "^1.9",
-        "phpmd/phpmd": "^2.13"
+        "phpunit/phpunit": "^9.5",
+        "squizlabs/php_codesniffer": "^3.7"
     },
     "config": {
         "sort-packages": true
@@ -31,8 +32,8 @@
     },
     "license": "MIT",
     "scripts": {
-        "analyze": "phpstan analyze src --level 9",
-        "analyze:strict": "phan --no-progress-bar --strict-type-checking --analyze-twice --color --output-mode=text --color-scheme=light",
+        "analyze": "XDEBUG_MODE=off phpstan analyze src --level 9",
+        "analyze:strict": "XDEBUG_MODE=off phan --no-progress-bar --strict-type-checking --analyze-twice --color --output-mode=text --color-scheme=light",
         "analyze:dead-code": "@analyze:strict --color-scheme=light --config-file=.phan/config_deadcode.php",
         "check": [
             "@lint -q",
@@ -50,10 +51,9 @@
             "Composer\\Config::disableProcessTimeout",
             "watch -n 30 -cx vendor/bin/phpunit --color=always --testsuite unit"
         ],
+        "semgrep:install": "python3 -m pip install semgrep",
+        "semgrep": "semgrep --config auto -l php ./src",
         "test": "phpunit --color=always",
-        "test:acceptance": "@test --configuration=phpunit.dev.xml --testsuite acceptance",
-        "test:acceptance:report": "@test --configuration=phpunit.dev.xml --testsuite acceptance --testdox-text acceptance-test-results.md",
-        "test:benchmark": "@test --configuration=phpunit.dev.xml --testsuite benchmark",
         "test:unit": "@test --configuration=phpunit.dev.xml --testsuite unit",
         "test:coverage": "XDEBUG_MODE=coverage composer exec \"@test --configuration=phpunit.dev.xml --coverage-text --testsuite unit\"",
         "xdebug:on": [
