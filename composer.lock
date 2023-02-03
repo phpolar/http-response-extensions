@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "c401e9ae994c057143609998fc9b123c",
+    "content-hash": "bc3d61c5a5d1b0c98da1c80f478b7683",
     "packages": [],
     "packages-dev": [
         {
@@ -1459,6 +1459,54 @@
                 }
             ],
             "time": "2022-09-10T08:44:15+00:00"
+        },
+        {
+            "name": "phpolar/http-codes",
+            "version": "0.0.6",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/phpolar/http-codes.git",
+                "reference": "b889110e8d497395a2b77e254e57d835adc476f2"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/phpolar/http-codes/zipball/b889110e8d497395a2b77e254e57d835adc476f2",
+                "reference": "b889110e8d497395a2b77e254e57d835adc476f2",
+                "shasum": ""
+            },
+            "require-dev": {
+                "phan/phan": "v5.x-dev",
+                "phpunit/phpunit": "^9.5",
+                "squizlabs/php_codesniffer": "4.0.x-dev"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Phpolar\\HttpCodes\\": "src/"
+                },
+                "exclude-from-classmap": [
+                    "/tests/**/*"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Prince Dorcis",
+                    "email": "princedorcis@gmail.com"
+                },
+                {
+                    "name": "Eric Fortmeyer",
+                    "email": "e.fortmeyer01@gmail.com"
+                }
+            ],
+            "description": "PHP class for HTTP Response Codes",
+            "support": {
+                "source": "https://github.com/phpolar/http-codes/tree/0.0.6"
+            },
+            "time": "2023-01-16T19:44:19+00:00"
         },
         {
             "name": "phpstan/phpstan",
