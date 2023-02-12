@@ -1,3 +1,9 @@
+## 0.1.3 (2023-02-12)
+
+### Fix
+
+- exclude unnecessary files from dist
+
 ## 0.1.2 (2023-02-12)
 
 ### Fix
