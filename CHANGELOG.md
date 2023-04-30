@@ -1,5 +1,7 @@
 ## 1.0.0 (2023-04-29)
 
+- use psr/http-message 2.0 method signatures
+
 ## 0.1.3 (2023-02-12)
 
 ### Fix
