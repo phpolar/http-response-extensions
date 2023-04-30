@@ -7,12 +7,13 @@ namespace Phpolar\Extensions\HttpResponse;
 use Generator;
 use Phpolar\Extensions\HttpResponse\Exception\InvalidHeaderNameException;
 use Phpolar\Extensions\HttpResponse\Exception\InvalidHeaderValueException;
-use Phpolar\Extensions\HttpResponse\Tests\Stubs\MemoryStreamStub;
-use Phpolar\Extensions\HttpResponse\Tests\Stubs\ResponseStub;
 use Phpolar\HttpCodes\ResponseCode;
+use Phpolar\HttpMessageTestUtils\MemoryStreamStub;
+use Phpolar\HttpMessageTestUtils\ResponseStub;
 use PHPUnit\Framework\TestCase;
 use ReflectionClass;
 use RuntimeException;
+use SebastianBergmann\CodeCoverage\Driver\Xdebug3NotEnabledException;
 
 /**
  * @covers \Phpolar\Extensions\HttpResponse\ResponseExtension
@@ -100,6 +101,10 @@ final class ResponseExtensionTest extends TestCase
      */
     public function test2()
     {
+
+        if (in_array("xdebug", get_loaded_extensions()) === false) {
+            $this->markTestSkipped("This test requires XDebug to be enabled.");
+        }
         ResponseExtension::extend(new ResponseStub())
             ->withBody(new MemoryStreamStub())
             ->withHeader(self::HEADER_KEY, self::HEADER_VALUE)

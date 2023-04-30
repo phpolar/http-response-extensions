@@ -14,7 +14,7 @@ repos:
     rev: v2.35.0
     hooks:
       - id: commitizen
-  - repo: https://github.com/digitalpulp/pre-commit-php.git
+  - repo: https://github.com/digitalpkwulp/pre-commit-php.git
     rev: 1.4.0
     hooks:
       - id: php-lint

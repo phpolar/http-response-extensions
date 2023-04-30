@@ -23,7 +23,7 @@ final class ResponseExtension implements ResponseInterface
     {
     }
 
-    public function getBody()
+    public function getBody(): StreamInterface
     {
         return $this->response->getBody();
     }
@@ -31,7 +31,7 @@ final class ResponseExtension implements ResponseInterface
     /**
      * @codeCoverageIgnore
      */
-    public function getHeader($name)
+    public function getHeader($name): array
     {
         return $this->response->getHeader($name);
     }
@@ -39,17 +39,17 @@ final class ResponseExtension implements ResponseInterface
     /**
      * @codeCoverageIgnore
      */
-    public function getHeaderLine($name)
+    public function getHeaderLine($name): string
     {
         return $this->response->getHeaderLine($name);
     }
 
-    public function getHeaders()
+    public function getHeaders(): array
     {
         return $this->response->getHeaders();
     }
 
-    public function getProtocolVersion()
+    public function getProtocolVersion(): string
     {
         return $this->response->getProtocolVersion();
     }
@@ -57,12 +57,12 @@ final class ResponseExtension implements ResponseInterface
     /**
      * @codeCoverageIgnore
      */
-    public function getReasonPhrase()
+    public function getReasonPhrase(): string
     {
         return $this->response->getReasonPhrase();
     }
 
-    public function getStatusCode()
+    public function getStatusCode(): int
     {
         return $this->response->getStatusCode();
     }
@@ -70,7 +70,7 @@ final class ResponseExtension implements ResponseInterface
     /**
      * @codeCoverageIgnore
      */
-    public function hasHeader($name)
+    public function hasHeader($name): bool
     {
         return $this->response->hasHeader($name);
     }
@@ -78,17 +78,17 @@ final class ResponseExtension implements ResponseInterface
     /**
      * @codeCoverageIgnore
      */
-    public function withAddedHeader($name, $value)
+    public function withAddedHeader($name, $value): static
     {
         return new self($this->response->withAddedHeader($name, $value));
     }
 
-    public function withBody(StreamInterface $body)
+    public function withBody(StreamInterface $body): static
     {
         return new self($this->response->withBody($body));
     }
 
-    public function withHeader($name, $value)
+    public function withHeader($name, $value): static
     {
         return new self($this->response->withHeader($name, $value));
     }
@@ -96,7 +96,7 @@ final class ResponseExtension implements ResponseInterface
     /**
      * @codeCoverageIgnore
      */
-    public function withoutHeader($name)
+    public function withoutHeader($name): static
     {
         return new self($this->response->withoutHeader($name));
     }
@@ -104,7 +104,7 @@ final class ResponseExtension implements ResponseInterface
     /**
      * @codeCoverageIgnore
      */
-    public function withProtocolVersion($version)
+    public function withProtocolVersion($version): static
     {
         return new self($this->response->withProtocolVersion($version));
     }
@@ -112,7 +112,7 @@ final class ResponseExtension implements ResponseInterface
     /**
      * @codeCoverageIgnore
      */
-    public function withStatus($code, $reasonPhrase = '')
+    public function withStatus($code, $reasonPhrase = ''): static
     {
         return new self($this->response->withStatus($code, $reasonPhrase));
     }
